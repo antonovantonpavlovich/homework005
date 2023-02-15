@@ -1,5 +1,6 @@
 ﻿/*
-Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+Задайте массив вещественных чисел. Найдите разницу 
+между максимальным и минимальным элементов массива.
 
 [3 7 22 2 78] -> 76
 */
@@ -25,26 +26,38 @@ Console.Write($"{array[i]} ");
 }
 }
 
-int GetPositiveSum(int[] array)
+int GetMax (int[] array)
 {
-int sum = 0;
-
+int max = 0;
 for (int i = 0; i < array.Length; i++)
 {
-if (i%2!=0)
+if(array[i] > max)
+max = array[i];
+}
+
+return max;
+}
+
+int GetMin (int[] array)
 {
-    sum = sum + array[i];
+int min = array[0];
+for (int i = 0; i < array.Length; i++)
+{
+if(array[i] < min)
+min = array[i];
 }
 
-}
-
-return sum;
+return min;
 }
 
 int[] arr = InitArray();
 PrintArray(arr);
-int sum = GetPositiveSum(arr);
+int max = GetMax(arr);
+int min = GetMin(arr);
 
-Console.WriteLine($"-> {sum}");
+Console.WriteLine($" max -> {max}, min -> {min}, разница между -> {max - min}");
+
+
+
 
 
